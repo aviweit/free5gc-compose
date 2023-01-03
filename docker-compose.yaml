@@ -15,6 +15,20 @@ services:
         aliases:
           - upf.free5gc.org
 
+  free5gc-upf-2:
+    container_name: upf-2
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg2.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-2.free5gc.org
+
   db:
     container_name: mongodb
     image: mongo
@@ -133,6 +147,25 @@ services:
       - free5gc-nrf
       - free5gc-upf
 
+  free5gc-smf-2:
+    container_name: smf-2
+    image: free5gc/smf:v3.2.1
+    command: ./smf -c ./config/smfcfg.yaml -u ./config/uerouting.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/smfcfg2.yaml:/free5gc/config/smfcfg.yaml
+      - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
+    environment:
+      GIN_MODE: release
+    networks:
+      privnet:
+        aliases:
+          - smf-2.free5gc.org
+    depends_on:
+      - free5gc-nrf
+      - free5gc-upf-2
+
   free5gc-udm:
     container_name: udm
     image: free5gc/udm:v3.2.1
@@ -188,7 +221,9 @@ services:
     depends_on:
       - free5gc-amf
       - free5gc-smf
+      - free5gc-smf-2
       - free5gc-upf
+      - free5gc-upf-2
 
   free5gc-webui:
     container_name: webui
@@ -214,6 +249,7 @@ services:
     volumes:
       - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
       - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
+      - ./config/uecfg2.yaml:/ueransim/config/uecfg2.yaml
     cap_add:
       - NET_ADMIN
     devices:
@@ -225,6 +261,7 @@ services:
     depends_on:
       - free5gc-amf
       - free5gc-upf
+      - free5gc-upf-2
 
 networks:
   privnet:
