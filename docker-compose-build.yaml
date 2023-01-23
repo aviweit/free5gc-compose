@@ -6,7 +6,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg.yaml:/free5gc/config/upfcfg.yaml
@@ -23,7 +23,7 @@ services:
     build:
       context: ./nf_upf
       args:
-        DEBUG_TOOLS: "false"
+        DEBUG_TOOLS: "true"
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
       - ./config/upfcfg-2.yaml:/free5gc/config/upfcfg.yaml
