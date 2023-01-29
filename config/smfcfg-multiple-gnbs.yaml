@@ -37,7 +37,7 @@ configuration:
         nrCellId: "000000010"
       gNB2: # the name of the node
         type: AN # the type of the node (AN or UPF)
-        nrCellId: "000000010"
+        nrCellId: "000000020"
       UPF:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
@@ -78,3 +78,6 @@ logger:
   PFCP:
     debugLevel: info
     ReportCaller: false
+  CTX:
+    debugLevel: debug
+    ReportCaller: false  
