@@ -42,7 +42,21 @@ cd free5gc-compose
 # clone free5gc sources (e.g. v3.2.1)
 cd base
 git clone --recursive -b v3.2.1 -j `nproc` https://github.com/free5gc/free5gc.git
+
+# replace smf
+cd free5gc/NFs
+rm -Rf smf
+git clone https://github.com/aviweit/smf.git
+cd smf
+git checkout 603c777-multiple_gnb
 cd ..
+
+# replace amf
+rm -Rf amf
+git clone https://github.com/aviweit/amf.git
+cd amf
+git checkout a3bd535-multiple_gnb
+cd ../../../../
 
 # Build the images
 make all

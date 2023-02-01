@@ -15,6 +15,20 @@ services:
         aliases:
           - upf.free5gc.org
 
+  free5gc-upf-2:
+    container_name: upf-2
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg2.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-2.free5gc.org
+
   db:
     container_name: mongodb
     image: mongo
@@ -48,7 +62,7 @@ services:
 
   free5gc-amf:
     container_name: amf
-    image: free5gc/amf:v3.2.1
+    image: free5gc-compose_free5gc-amf
     command: ./amf -c ./config/amfcfg.yaml
     expose:
       - "8000"
@@ -116,12 +130,14 @@ services:
 
   free5gc-smf:
     container_name: smf
-    image: free5gc/smf:v3.2.1
+    image: free5gc-compose_free5gc-smf
     command: ./smf -c ./config/smfcfg.yaml -u ./config/uerouting.yaml
     expose:
       - "8000"
+    ports:
+      - "38000:8000"
     volumes:
-      - ./config/smfcfg.yaml:/free5gc/config/smfcfg.yaml
+      - ./config/smfcfg-multiple-gnbs.yaml:/free5gc/config/smfcfg.yaml
       - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
     environment:
       GIN_MODE: release
@@ -132,6 +148,7 @@ services:
     depends_on:
       - free5gc-nrf
       - free5gc-upf
+      - free5gc-upf-2
 
   free5gc-udm:
     container_name: udm
@@ -189,6 +206,7 @@ services:
       - free5gc-amf
       - free5gc-smf
       - free5gc-upf
+      - free5gc-upf-2
 
   free5gc-webui:
     container_name: webui
@@ -225,6 +243,27 @@ services:
     depends_on:
       - free5gc-amf
       - free5gc-upf
+      - free5gc-upf-2
+
+  ueransim2:
+    container_name: ueransim2
+    image: free5gc/ueransim:latest
+    command: ./nr-gnb -c ./config/gnbcfg.yaml
+    volumes:
+      - ./config/gnbcfg2.yaml:/ueransim/config/gnbcfg.yaml
+      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun"
+    networks:
+      privnet:
+        aliases:
+          - gnb.free5gc.org
+    depends_on:
+      - free5gc-amf
+      - free5gc-upf
+      - free5gc-upf-2
 
 networks:
   privnet:
