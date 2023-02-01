@@ -259,7 +259,7 @@ services:
     networks:
       privnet:
         aliases:
-          - gnb.free5gc.org
+          - gnb-2.free5gc.org
     depends_on:
       - free5gc-amf
       - free5gc-upf
