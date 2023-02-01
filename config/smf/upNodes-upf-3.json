@@ -1,28 +1,23 @@
 {
     "upNodes": {
-        "UPF-2": {
+        "UPF-3": {
             "type": "UPF",
-            "nodeID": "upf-2.free5gc.org",
+            "nodeID": "upf-3.free5gc.org",
             "sNssaiUpfInfos": [
               {
                   "sNssai": {"sst": 1, "sd": "010203"},
                   "dnnUpfInfoList": [
                       {
                           "dnn": "internet",
-                          "pools": [{"cidr": "10.62.0.0/16"}]
+                          "pools": [{"cidr": "10.63.0.0/16"}]
                       }
                   ]
               }
             ],
             "interfaces": [
                 {
-                    "interfaceType": "N3",
-                    "endpoints": ["upf-2.free5gc.org"],
-                    "networkInstance": "internet"
-                },
-                {
                     "interfaceType": "N9",
-                    "endpoints": ["upf-2.free5gc.org"],
+                    "endpoints": ["upf-3.free5gc.org"],
                     "networkInstance": "internet"
                 }
             ]
@@ -30,8 +25,12 @@
     },
     "links": [
         {
-            "A": "gNB2",
-            "B": "UPF-2"
+            "A": "UPF",
+            "B": "UPF-3"
+        },
+        {
+            "A": "UPF-2",
+            "B": "UPF-3"
         }
     ]
 }

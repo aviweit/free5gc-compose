@@ -29,6 +29,20 @@ services:
         aliases:
           - upf-2.free5gc.org
 
+  free5gc-upf-3:
+    container_name: upf-3
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg3.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-3.free5gc.org
+
   db:
     container_name: mongodb
     image: mongo
@@ -149,6 +163,7 @@ services:
       - free5gc-nrf
       - free5gc-upf
       - free5gc-upf-2
+      - free5gc-upf-3
 
   free5gc-udm:
     container_name: udm
@@ -207,6 +222,7 @@ services:
       - free5gc-smf
       - free5gc-upf
       - free5gc-upf-2
+      - free5gc-upf-3
 
   free5gc-webui:
     container_name: webui
@@ -244,6 +260,7 @@ services:
       - free5gc-amf
       - free5gc-upf
       - free5gc-upf-2
+      - free5gc-upf-3      
 
   ueransim2:
     container_name: ueransim2
@@ -264,6 +281,7 @@ services:
       - free5gc-amf
       - free5gc-upf
       - free5gc-upf-2
+      - free5gc-upf-3
 
 networks:
   privnet:
