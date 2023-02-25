@@ -34,9 +34,9 @@ configuration:
     upNodes: # information of userplane node (AN or UPF)
       gNB: # the name of the node
         type: AN # the type of the node (AN or UPF)
-      UPF-R-1:  # the name of the node
+      UPF-R-1-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-r-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-r-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -48,16 +48,37 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N3 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-r-1.free5gc.org
+              - upf-r-1-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-r-1.free5gc.org
+              - upf-r-1-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
 
-      UPF-T-1:  # the name of the node
+      UPF-R-1-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-t-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-r-1-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.41.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N3 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-r-1-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-r-1-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
+      UPF-T-1-0:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-t-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -69,12 +90,29 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-t-1.free5gc.org
+              - upf-t-1-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
 
-      UPF-T-2:  # the name of the node
+      UPF-T-1-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-t-2.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-t-1-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.51.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-t-1-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
+      UPF-T-2-0:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-t-2-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -86,12 +124,29 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-t-2.free5gc.org
+              - upf-t-2-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
 
-      UPF-C-1:  # the name of the node
+      UPF-T-2-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-c-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-t-2-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.52.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-t-2-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
+      UPF-C-1-0:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-c-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -103,12 +158,29 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-c-1.free5gc.org
+              - upf-c-1-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
 
-      UPF-C-2:  # the name of the node
+      UPF-C-1-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-c-2.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-c-1-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.61.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-c-1-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
+      UPF-C-2-0:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-c-2-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -120,12 +192,29 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-c-2.free5gc.org
+              - upf-c-2-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
 
-      UPF-C-3:  # the name of the node
+      UPF-C-2-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-c-3.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-c-2-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.62.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-c-2-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
+      UPF-C-3-0:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-c-3-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -137,12 +226,29 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-c-3.free5gc.org
+              - upf-c-3-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
 
-      UPF-C-4:  # the name of the node
+      UPF-C-3-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
-        nodeID: upf-c-4.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        nodeID: upf-c-3-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.63.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-c-3-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
+      UPF-C-4-0:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-c-4-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -154,37 +260,90 @@ configuration:
         interfaces: # Interface list for this UPF
           - interfaceType: N9 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
-              - upf-c-4.free5gc.org
+              - upf-c-4-0.free5gc.org
             networkInstance: internet # Data Network Name (DNN)
+
+      UPF-C-4-1:  # the name of the node
+        type: UPF # the type of the node (AN or UPF)
+        nodeID: upf-c-4-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        sNssaiUpfInfos: # S-NSSAI information list for this UPF
+          - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
+              sst: 1 # Slice/Service Type (uinteger, range: 0~255)
+              sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+            dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: internet
+                pools:
+                  - cidr: 11.64.0.0/16
+        interfaces: # Interface list for this UPF
+          - interfaceType: N9 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - upf-c-4-1.free5gc.org
+            networkInstance: internet # Data Network Name (DNN)
+
 
     links: # the topology graph of userplane, A and B represent the two nodes of each link
       - A: gNB
-        B: UPF-R-1
+        B: UPF-R-1-0
         W: 10
 
-      - A: UPF-R-1
-        B: UPF-T-1
+      - A: UPF-R-1-0
+        B: UPF-T-1-0
         W: 2
-      - A: UPF-R-1
-        B: UPF-T-2
+      - A: UPF-R-1-0
+        B: UPF-T-2-0
         W: 8
 
-      - A: UPF-T-1
-        B: UPF-C-1
+      - A: UPF-T-1-0
+        B: UPF-C-1-0
         W: 1
-      - A: UPF-T-1
-        B: UPF-C-2
+      - A: UPF-T-1-0
+        B: UPF-C-2-0
         W: 1
 
-      - A: UPF-T-2
-        B: UPF-C-2
+      - A: UPF-T-2-0
+        B: UPF-C-2-0
         W: 4
-      - A: UPF-T-2
-        B: UPF-C-3
+      - A: UPF-T-2-0
+        B: UPF-C-3-0
         W: 3
-      - A: UPF-T-2
-        B: UPF-C-4
+      - A: UPF-T-2-0
+        B: UPF-C-4-0
         W: 1
+
+
+
+      - A: gNB
+        B: UPF-R-1-1
+        W: 10
+
+      - A: UPF-R-1-1
+        B: UPF-T-1-1
+        W: 2
+      - A: UPF-R-1-1
+        B: UPF-T-2-1
+        W: 8
+
+      - A: UPF-T-1-1
+        B: UPF-C-1-1
+        W: 1
+      - A: UPF-T-1-1
+        B: UPF-C-2-1
+        W: 1
+
+      - A: UPF-T-2-1
+        B: UPF-C-2-1
+        W: 4
+      - A: UPF-T-2-1
+        B: UPF-C-3-1
+        W: 3
+      - A: UPF-T-2-1
+        B: UPF-C-4-1
+        W: 1
+
+
+
+
+
 
 #    links: # the topology graph of userplane, A and B represent the two nodes of each link
 #      - A: gNB

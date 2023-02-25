@@ -1,103 +1,202 @@
 version: '3.8'
 
 services:
-  free5gc-upf-r-1:
-    container_name: upf-r-1
+  free5gc-upf-r-1-0:
+    container_name: upf-r-1-0
     image: free5gc/upf:v3.2.1
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-r-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-r-1-0.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-r-1.free5gc.org
+          - upf-r-1-0.free5gc.org
 
-  free5gc-upf-t-1:
-    container_name: upf-t-1
+  free5gc-upf-r-1-1:
+    container_name: upf-r-1-1
     image: free5gc/upf:v3.2.1
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-t-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-r-1-1.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-t-1.free5gc.org
+          - upf-r-1-1.free5gc.org
 
-  free5gc-upf-t-2:
-    container_name: upf-t-2
-    image: free5gc/upf:v3.2.1
-    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
-    volumes:
-      - ./config/upfcfg-t-2.yaml:/free5gc/config/upfcfg.yaml
-      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - upf-t-2.free5gc.org
 
-  free5gc-upf-c-1:
-    container_name: upf-c-1
+  free5gc-upf-t-1-0:
+    container_name: upf-t-1-0
     image: free5gc/upf:v3.2.1
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-c-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-t-1-0.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-c-1.free5gc.org
+          - upf-t-1-0.free5gc.org
 
-  free5gc-upf-c-2:
-    container_name: upf-c-2
+  free5gc-upf-t-1-1:
+    container_name: upf-t-1-1
     image: free5gc/upf:v3.2.1
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-c-2.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-t-1-1.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-c-2.free5gc.org
+          - upf-t-1-1.free5gc.org
 
-  free5gc-upf-c-3:
-    container_name: upf-c-3
+  free5gc-upf-t-2-0:
+    container_name: upf-t-2-0
     image: free5gc/upf:v3.2.1
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-c-3.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-t-2-0.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-c-3.free5gc.org
+          - upf-t-2-0.free5gc.org
 
-  free5gc-upf-c-4:
-    container_name: upf-c-4
+  free5gc-upf-t-2-1:
+    container_name: upf-t-2-1
     image: free5gc/upf:v3.2.1
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
-      - ./config/upfcfg-c-4.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upfcfg-t-2-1.yaml:/free5gc/config/upfcfg.yaml
       - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
       privnet:
         aliases:
-          - upf-c-4.free5gc.org
+          - upf-t-2-1.free5gc.org
+
+  free5gc-upf-c-1-0:
+    container_name: upf-c-1-0
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-1-0.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-1-0.free5gc.org
+
+  free5gc-upf-c-1-1:
+    container_name: upf-c-1-1
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-1-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-1-1.free5gc.org
+
+  free5gc-upf-c-2-0:
+    container_name: upf-c-2-0
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-2-0.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-2-0.free5gc.org
+
+  free5gc-upf-c-2-1:
+    container_name: upf-c-2-1
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-2-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-2-1.free5gc.org
+
+  free5gc-upf-c-3-0:
+    container_name: upf-c-3-0
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-3-0.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-3-0.free5gc.org
+
+  free5gc-upf-c-3-1:
+    container_name: upf-c-3-1
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-3-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-3-1.free5gc.org
+
+  free5gc-upf-c-4-0:
+    container_name: upf-c-4-0
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-4-0.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-4-0.free5gc.org
+
+  free5gc-upf-c-4-1:
+    container_name: upf-c-4-1
+    image: free5gc/upf:v3.2.1
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    volumes:
+      - ./config/upfcfg-c-4-1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - upf-c-4-1.free5gc.org
 
   db:
     container_name: mongodb
@@ -215,13 +314,22 @@ services:
           - smf.free5gc.org
     depends_on:
       - free5gc-nrf
-      - free5gc-upf-r-1
-      - free5gc-upf-t-1
-      - free5gc-upf-t-2
-      - free5gc-upf-c-1
-      - free5gc-upf-c-2
-      - free5gc-upf-c-3
-      - free5gc-upf-c-4
+      - free5gc-upf-r-1-0
+      - free5gc-upf-t-1-0
+      - free5gc-upf-t-2-0
+      - free5gc-upf-c-1-0
+      - free5gc-upf-c-2-0
+      - free5gc-upf-c-3-0
+      - free5gc-upf-c-4-0
+
+      - free5gc-upf-r-1-1
+      - free5gc-upf-t-1-1
+      - free5gc-upf-t-2-1
+      - free5gc-upf-c-1-1
+      - free5gc-upf-c-2-1
+      - free5gc-upf-c-3-1
+      - free5gc-upf-c-4-1
+
 
   free5gc-udm:
     container_name: udm
@@ -278,13 +386,21 @@ services:
     depends_on:
       - free5gc-amf
       - free5gc-smf
-      - free5gc-upf-r-1
-      - free5gc-upf-t-1
-      - free5gc-upf-t-2
-      - free5gc-upf-c-1
-      - free5gc-upf-c-2
-      - free5gc-upf-c-3
-      - free5gc-upf-c-4
+      - free5gc-upf-r-1-0
+      - free5gc-upf-t-1-0
+      - free5gc-upf-t-2-0
+      - free5gc-upf-c-1-0
+      - free5gc-upf-c-2-0
+      - free5gc-upf-c-3-0
+      - free5gc-upf-c-4-0
+
+      - free5gc-upf-r-1-1
+      - free5gc-upf-t-1-1
+      - free5gc-upf-t-2-1
+      - free5gc-upf-c-1-1
+      - free5gc-upf-c-2-1
+      - free5gc-upf-c-3-1
+      - free5gc-upf-c-4-1
 
   free5gc-webui:
     container_name: webui
@@ -320,13 +436,21 @@ services:
           - gnb.free5gc.org
     depends_on:
       - free5gc-amf
-      - free5gc-upf-r-1
-      - free5gc-upf-t-1
-      - free5gc-upf-t-2
-      - free5gc-upf-c-1
-      - free5gc-upf-c-2
-      - free5gc-upf-c-3
-      - free5gc-upf-c-4
+      - free5gc-upf-r-1-0
+      - free5gc-upf-t-1-0
+      - free5gc-upf-t-2-0
+      - free5gc-upf-c-1-0
+      - free5gc-upf-c-2-0
+      - free5gc-upf-c-3-0
+      - free5gc-upf-c-4-0
+
+      - free5gc-upf-r-1-1
+      - free5gc-upf-t-1-1
+      - free5gc-upf-t-2-1
+      - free5gc-upf-c-1-1
+      - free5gc-upf-c-2-1
+      - free5gc-upf-c-3-1
+      - free5gc-upf-c-4-1
 
 networks:
   privnet:
