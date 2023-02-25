@@ -24,21 +24,27 @@ docker compose pull
 
 ```bash
 # Clone the project
-git clone https://github.com/free5gc/free5gc-compose.git
+git clone https://github.com/aviweit/free5gc-compose.git
 cd free5gc-compose
+git checkout weights
 
 # clone free5gc sources (e.g. v3.2.1)
 cd base
 git clone --recursive -b v3.2.1 -j `nproc` https://github.com/free5gc/free5gc.git
 cd ..
 
+rm -Rf smf
+git clone https://github.com/aviweit/smf.git
+cd smf
+git checkout weights
+
 # Build the images
 make all
 docker compose -f docker-compose-build.yaml build
 
 # Alternatively you can build specific NF image e.g.:
-make amf
-docker compose -f docker-compose-build.yaml build free5gc-amf
+make smf
+docker compose -f docker-compose-build.yaml build free5gc-smf
 ```
 
 Note:
