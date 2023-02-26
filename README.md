@@ -38,13 +38,15 @@ git clone https://github.com/aviweit/smf.git
 cd smf
 git checkout weights
 
-# Build the images
-make all
-docker compose -f docker-compose-build.yaml build
+rm -Rf amf
+git clone https://github.com/aviweit/amf.git
+cd amf
+git checkout a3bd535-multiple_gnb
 
-# Alternatively you can build specific NF image e.g.:
 make smf
 docker compose -f docker-compose-build.yaml build free5gc-smf
+make amf
+docker compose -f docker-compose-build.yaml build free5gc-amf
 ```
 
 Note:
