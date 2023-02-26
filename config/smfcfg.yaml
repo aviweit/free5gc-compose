@@ -41,6 +41,7 @@ configuration:
     upNodes: # information of userplane node (AN or UPF)
       gNB: # the name of the node
         type: AN # the type of the node (AN or UPF)
+        nrCellId: "000000010"
       UPF-R-1-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-r-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)

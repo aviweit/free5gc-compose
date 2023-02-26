@@ -303,6 +303,8 @@ services:
     command: ./smf -c ./config/smfcfg.yaml -u ./config/uerouting.yaml
     expose:
       - "8000"
+    ports:
+      - "38000:8000"
     volumes:
       - ./config/smfcfg.yaml:/free5gc/config/smfcfg.yaml
       - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
