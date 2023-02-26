@@ -373,7 +373,7 @@ configuration:
 # ReportCaller: enable the caller report or not, value: true or false
 logger:
   SMF:
-    debugLevel: debug
+    debugLevel: trace
     ReportCaller: false
   NAS:
     debugLevel: info
@@ -389,4 +389,7 @@ logger:
     ReportCaller: false
   CTX:
     debugLevel: debug
+    ReportCaller: false
+  PduSess:
+    debugLevel: trace
     ReportCaller: false
