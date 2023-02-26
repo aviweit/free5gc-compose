@@ -102,7 +102,7 @@ configuration:
 # ReportCaller: enable the caller report or not, value: true or false
 logger:
   AMF:
-    debugLevel: info
+    debugLevel: debug
     ReportCaller: false
   NAS:
     debugLevel: info
@@ -111,8 +111,11 @@ logger:
     debugLevel: info
     ReportCaller: false
   NGAP:
-    debugLevel: info
+    debugLevel: debug
     ReportCaller: false
   Aper:
     debugLevel: info
+    ReportCaller: false
+  GMM:
+    debugLevel: debug
     ReportCaller: false

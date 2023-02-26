@@ -36,7 +36,7 @@ cd ..
 rm -Rf smf
 git clone https://github.com/aviweit/smf.git
 cd smf
-git checkout weights
+git checkout TBD
 
 rm -Rf amf
 git clone https://github.com/aviweit/amf.git
