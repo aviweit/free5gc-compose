@@ -455,6 +455,40 @@ services:
       - free5gc-upf-c-3-1
       - free5gc-upf-c-4-1
 
+  ueransim-2:
+    container_name: ueransim-2
+    image: free5gc/ueransim:latest
+    command: ./nr-gnb -c ./config/gnbcfg.yaml
+    volumes:
+      - ./config/gnbcfg-2.yaml:/ueransim/config/gnbcfg.yaml
+      - ./config/uecfg-0.yaml:/ueransim/config/uecfg-0.yaml
+      - ./config/uecfg-1.yaml:/ueransim/config/uecfg-1.yaml
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun"
+    networks:
+      privnet:
+        aliases:
+          - gnb-2.free5gc.org
+    depends_on:
+      - free5gc-amf
+      - free5gc-upf-r-1-0
+      - free5gc-upf-t-1-0
+      - free5gc-upf-t-2-0
+      - free5gc-upf-c-1-0
+      - free5gc-upf-c-2-0
+      - free5gc-upf-c-3-0
+      - free5gc-upf-c-4-0
+
+      - free5gc-upf-r-1-1
+      - free5gc-upf-t-1-1
+      - free5gc-upf-t-2-1
+      - free5gc-upf-c-1-1
+      - free5gc-upf-c-2-1
+      - free5gc-upf-c-3-1
+      - free5gc-upf-c-4-1
+
 networks:
   privnet:
     ipam:
