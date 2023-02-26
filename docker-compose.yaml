@@ -443,8 +443,10 @@ services:
     command: ./nr-gnb -c ./config/gnbcfg.yaml
     volumes:
       - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
-      - ./config/uecfg-0.yaml:/ueransim/config/uecfg-0.yaml
-      - ./config/uecfg-1.yaml:/ueransim/config/uecfg-1.yaml
+      - ./config/uecfg-gnb1-slice0.yaml:/ueransim/config/uecfg-gnb1-slice0.yaml
+      - ./config/uecfg-gnb1-slice1.yaml:/ueransim/config/uecfg-gnb1-slice1.yaml
+      - ./config/uecfg-gnb2-slice0.yaml:/ueransim/config/uecfg-gnb2-slice0.yaml
+      - ./config/uecfg-gnb2-slice1.yaml:/ueransim/config/uecfg-gnb2-slice1.yaml
     cap_add:
       - NET_ADMIN
     devices:
@@ -478,8 +480,10 @@ services:
     command: ./nr-gnb -c ./config/gnbcfg.yaml
     volumes:
       - ./config/gnbcfg-2.yaml:/ueransim/config/gnbcfg.yaml
-      - ./config/uecfg-0.yaml:/ueransim/config/uecfg-0.yaml
-      - ./config/uecfg-1.yaml:/ueransim/config/uecfg-1.yaml
+      - ./config/uecfg-gnb1-slice0.yaml:/ueransim/config/uecfg-gnb1-slice0.yaml
+      - ./config/uecfg-gnb1-slice1.yaml:/ueransim/config/uecfg-gnb1-slice1.yaml
+      - ./config/uecfg-gnb2-slice0.yaml:/ueransim/config/uecfg-gnb2-slice0.yaml
+      - ./config/uecfg-gnb2-slice1.yaml:/ueransim/config/uecfg-gnb2-slice1.yaml
     cap_add:
       - NET_ADMIN
     devices:
