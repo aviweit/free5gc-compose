@@ -36,7 +36,7 @@ cd ..
 rm -Rf smf
 git clone https://github.com/aviweit/smf.git
 cd smf
-git checkout TBD
+git checkout multiple_gnbs-and-weight_slices
 
 rm -Rf amf
 git clone https://github.com/aviweit/amf.git
