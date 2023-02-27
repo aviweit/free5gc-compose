@@ -26,7 +26,7 @@ docker compose pull
 # Clone the project
 git clone https://github.com/aviweit/free5gc-compose.git
 cd free5gc-compose
-git checkout weights
+git checkout weighted_random
 
 # clone free5gc sources (e.g. v3.2.1)
 cd base
@@ -36,17 +36,10 @@ cd ..
 rm -Rf smf
 git clone https://github.com/aviweit/smf.git
 cd smf
-git checkout multiple_gnbs-and-weight_slices
-
-rm -Rf amf
-git clone https://github.com/aviweit/amf.git
-cd amf
-git checkout a3bd535-multiple_gnb
+git checkout weighted_random
 
 make smf
 docker compose -f docker-compose-build.yaml build free5gc-smf
-make amf
-docker compose -f docker-compose-build.yaml build free5gc-amf
 ```
 
 Note:
