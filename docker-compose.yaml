@@ -245,7 +245,7 @@ services:
 
   free5gc-amf:
     container_name: amf
-    image: free5gc-compose_free5gc-amf
+    image: free5gc/amf:v3.2.1
     command: ./amf -c ./config/amfcfg.yaml
     expose:
       - "8000"

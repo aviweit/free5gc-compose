@@ -41,13 +41,11 @@ configuration:
     upNodes: # information of userplane node (AN or UPF)
       gNB: # the name of the node
         type: AN # the type of the node (AN or UPF)
-        nrCellId: "000000010"
-      gNB2: # the name of the node
-        type: AN # the type of the node (AN or UPF)
-        nrCellId: "000000020"
       UPF-R-1-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-r-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 800 Mbps
+        dlMbrLimit: 800 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -69,6 +67,8 @@ configuration:
       UPF-R-2-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-r-2-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 600 Mbps
+        dlMbrLimit: 600 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -90,6 +90,8 @@ configuration:
       UPF-R-1-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-r-1-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 2000 Mbps
+        dlMbrLimit: 2000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -111,6 +113,8 @@ configuration:
       UPF-T-1-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-t-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 1000 Mbps
+        dlMbrLimit: 1000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -128,6 +132,8 @@ configuration:
       UPF-T-1-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-t-1-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 2500 Mbps
+        dlMbrLimit: 2500 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -145,6 +151,8 @@ configuration:
       UPF-T-2-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-t-2-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 700 Mbps
+        dlMbrLimit: 700 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -162,6 +170,8 @@ configuration:
       UPF-T-2-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-t-2-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 2500 Mbps
+        dlMbrLimit: 2500 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -179,6 +189,8 @@ configuration:
       UPF-C-1-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-1-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 10000 Mbps
+        dlMbrLimit: 10000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -196,6 +208,8 @@ configuration:
       UPF-C-1-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-1-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 2048 Mbps
+        dlMbrLimit: 2048 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -213,6 +227,8 @@ configuration:
       UPF-C-2-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-2-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 10000 Mbps
+        dlMbrLimit: 10000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -230,6 +246,8 @@ configuration:
       UPF-C-2-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-2-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 2048 Mbps
+        dlMbrLimit: 2048 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -247,6 +265,8 @@ configuration:
       UPF-C-3-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-3-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 2000 Mbps
+        dlMbrLimit: 2000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -264,6 +284,8 @@ configuration:
       UPF-C-3-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-3-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 4000 Mbps
+        dlMbrLimit: 4000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -281,6 +303,8 @@ configuration:
       UPF-C-4-0:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-4-0.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 4000 Mbps
+        dlMbrLimit: 4000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -298,6 +322,8 @@ configuration:
       UPF-C-4-1:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
         nodeID: upf-c-4-1.free5gc.org # the IP/FQDN of N4 interface on this UPF (PFCP)
+        ulMbrLimit: 4000 Mbps
+        dlMbrLimit: 4000 Mbps
         sNssaiUpfInfos: # S-NSSAI information list for this UPF
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
@@ -317,38 +343,28 @@ configuration:
 
 ###############################################
 # SLICE 0 -- (st: 1, ssd: 010203)
-      - A: gNB   # GNB 1
+      - A: gNB
         B: UPF-R-1-0
-        W: 5
-
-      - A: gNB2  # GNB 2
-        B: UPF-R-2-0
-        W: 5
 
       - A: UPF-R-1-0
         B: UPF-T-1-0
-        W: 3
-      - A: UPF-R-2-0
-        B: UPF-T-1-0
-        W: 3
 
       - A: UPF-T-1-0
         B: UPF-C-1-0
-        W: 2
+      - A: UPF-T-1-0
+        B: UPF-C-2-0
+
+
 
 #############################################
 # SLICE 1 -- (1/112233)
-      - A: gNB    # GNB 1
+      - A: gNB
         B: UPF-R-1-1
-        W: 4
-
-      - A: gNB2   # GNB 2
-        B: UPF-R-1-1
-        W: 4
 
       - A: UPF-R-1-1
         B: UPF-T-1-1
-        W: 4
+      - A: UPF-T-1-1
+        B: UPF-T-2-1
 
        
   nrfUri: http://nrf.free5gc.org:8000 # a valid URI of NRF
