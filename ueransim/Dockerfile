@@ -20,17 +20,21 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install runtime dependencies + ping
 RUN apt-get update \
-    && apt-get install libsctp-dev lksctp-tools iproute2 iputils-ping -y \
+    && apt-get install libsctp-dev lksctp-tools iproute2 iputils-ping python3 python3-venv python3-pip vim -y \
     && apt-get clean
 
 WORKDIR /ueransim
 
 RUN mkdir -p config/ binder/
+RUN echo "set mouse-=a" >> /root/.vimrc
 
 COPY --from=builder /UERANSIM/build/nr-gnb .
 COPY --from=builder /UERANSIM/build/nr-ue .
 COPY --from=builder /UERANSIM/build/nr-cli .
 COPY --from=builder /UERANSIM/build/nr-binder binder/
 COPY --from=builder /UERANSIM/build/libdevbnd.so binder/
+
+COPY ./main.py .
+COPY ./subscribe.py .
 
 VOLUME [ "/ueransim/config" ]
