@@ -20,7 +20,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install runtime dependencies + ping
 RUN apt-get update \
-    && apt-get install libsctp-dev lksctp-tools iproute2 iputils-ping python3 python3-venv python3-pip vim -y \
+    && apt-get install procps libsctp-dev lksctp-tools iproute2 iputils-ping python3 python3-venv python3-pip vim -y \
     && apt-get clean
 
 WORKDIR /ueransim
