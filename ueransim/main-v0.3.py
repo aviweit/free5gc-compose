@@ -9,6 +9,7 @@ import threading
 UERANSIM_DIR = '/home/weit/UERANSIM/'
 NR_UE = 'build/nr-ue'
 NR_CLI = 'build/nr-cli'
+UE_INTERVAL = 2
 
 # relative path to proper configuration file
 config_map = {
@@ -41,27 +42,40 @@ def execute(cmd):
 
 
 def single_ue_flow(mcc, mnc, msin):
-    sys.stdout.write('ENTER single_ue_flow %s %s %s \n' % (mcc, mnc, msin))
-    e = execute([UERANSIM_DIR + NR_UE, '-c', UERANSIM_DIR + config_map['gnb0']['slice0'],
-                      '-i', 'imsi-%s%s%s' % (mcc, mnc, msin)])
+    sys.stdout.write('ENTER single_ue_flow %s %s %s \n' %
+                     (mcc, mnc, msin))
+
+    e = execute([UERANSIM_DIR + NR_UE, '-c',
+                 UERANSIM_DIR + config_map['gnb0']['slice0'],
+                 '-i', 'imsi-%s%s%s' %
+                 (mcc, mnc, msin)])
+
     for l in e:
         matched = SUCCESS_RE.match(l)
         if (matched):
-            sys.stdout.write('SUCCESSFUL UE: %s, UE ip %s\n' % (msin, matched.group(2)))
+            sys.stdout.write('SUCCESSFUL UE: %s, UE ip %s\n' %
+                             (msin, matched.group(2)))
             break
-    time.sleep(2)
+    time.sleep(UE_INTERVAL)
     # TODO: stream data
-    os.system(UERANSIM_DIR + NR_CLI + ' ' + 'imsi-%s%s%s -e \"deregister switch-off\"' % (mcc, mnc, msin))
-    sys.stdout.write('EXIT single_ue_flow %s %s %s \n' % (mcc, mnc, msin))
+    os.system(UERANSIM_DIR + NR_CLI + ' ' + 'imsi-%s%s%s -e \"deregister switch-off\"' %
+              (mcc, mnc, msin))
+    sys.stdout.write('EXIT single_ue_flow %s %s %s \n' %
+                     (mcc, mnc, msin))
     for l in e:
-        # consume rest of stdout from e followed by process termination
+        # consume rest of stdout from e followed
+        # by process termination
         pass
 
 
 def main(args=None):
     threads = []
 
-    for i in [('208', '93', '0000000001')]:
+    for i in [('208', '93', '0000000001'), ('208', '93', '0000000002'),
+              ('208', '93', '0000000003'), ('208', '93', '0000000004'),
+              ('208', '93', '0000000005'), ('208', '93', '0000000006'),
+              ('208', '93', '0000000007'), ('208', '93', '0000000008'),
+              ('208', '93', '0000000009'), ('208', '93', '0000000010')]:
         x = threading.Thread(target=single_ue_flow, args=i)
         threads.append(x)
         x.start()
@@ -70,17 +84,5 @@ def main(args=None):
         x.join()
         print ("Main    : thread %d done" % index)
 
-    #single_ue_flow('208', '93', '000000000%d' % 1)
-    # single_ue_flow('208', '93', '000000000%d' % 2)
-    # single_ue_flow('208', '93', '000000000%d' % 3)
-    #
-    # single_ue_flow('208', '93', '000000000%d' % 4)
-    # single_ue_flow('208', '93', '000000000%d' % 5)
-    # single_ue_flow('208', '93', '000000000%d' % 6)
-    #
-    # single_ue_flow('208', '93', '000000000%d' % 7)
-    # single_ue_flow('208', '93', '000000000%d' % 8)
-    # single_ue_flow('208', '93', '000000000%d' % 9)
-   
 if __name__ == "__main__":
     main()
